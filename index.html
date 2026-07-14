@@ -187,14 +187,18 @@ Add your fixes below.
     --status-positive-border: #3ba55d !important;
 }
 
-/* Avatar-Umrandung erzwingen */
-.avatar-1EWyVD.speaking-1wNc_7,
-.avatar_f89da7.speaking_f89da7,
-.wrapper_c51b4e.speaking_c51b4e::after {
+/* Avatar-Umrandung erzwingen: Wir nutzen hier eine allgemeinere 
+   Klasse, damit es auch dann greift, wenn Discord die Namen ändert */
+[class*="avatar_"][class*="speaking_"] {
     box-shadow: inset 0 0 0 2px #3ba55d !important;
 }
 
-/* Sicherstellen, dass User-Profile transparent bleiben */
+/* Falls der Rahmen um den ganzen User-Wrapper sein soll: */
+[class*="wrapper_"][class*="speaking_"] {
+    box-shadow: inset 0 0 0 2px #3ba55d !important;
+}
+
+/* User-Profile transparent lassen, OHNE den Rest zu stören */
 .userProfileOuter_c69a7b {
     background: transparent !important;
 }
