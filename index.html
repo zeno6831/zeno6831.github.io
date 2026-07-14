@@ -5,9 +5,6 @@
 </head>
 <body>
     <pre>
-/* Temporary Fixes
-Macht Discord transparent und repariert den grünen Sprech-Ring.
-*/
 
 /* Macht das User-Panel transparent */
 .visual-refresh .panels_c48ade {
@@ -40,6 +37,7 @@ Macht Discord transparent und repariert den grünen Sprech-Ring.
   --border-faint: none;
   --border-strong: none;
   --border-subtle: none;
+  /* --border-normal: none;  <-- GELÖSCHT, damit Rahmen wieder funktionieren */
   --button-danger-background: none;
   --button-danger-background-active: none;
   --button-danger-background-disabled: none;
@@ -118,8 +116,7 @@ Macht Discord transparent und repariert den grünen Sprech-Ring.
   --text-link: var(--blue-new-26);
   --text-muted: var(--neutral-22);
   --text-normal: var(--neutral-9);
-  /* Wir erzwingen die Farbe hier für die Sprecher-Logik */
-  --text-positive: #23a559 !important; 
+  --text-positive: var(--green-new-24);
   --text-primary: var(--neutral-1);
   --text-secondary: var(--neutral-16);
   --text-warning: var(--yellow-new-22);
@@ -183,10 +180,9 @@ Macht Discord transparent und repariert den grünen Sprech-Ring.
   --text-tertiary: rgba(0, 0, 0, .3);
 }
 
-/* Letzter, ultimativer Fix für den grünen Ring */
-[class*="speaking"] {
-    box-shadow: inset 0 0 0 2px #23a559 !important;
-    border: 2px solid #23a559 !important;
+/* Erzwingt das grüne Leuchten beim Sprechen */
+.avatar-speaking, .speaking-32W9G5, .avatarSpeaking-3MqzwV {
+  box-shadow: inset 0 0 0 2px var(--green-new-24) !important;
 }
     </pre>
 </body>
