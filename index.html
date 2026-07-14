@@ -6,8 +6,9 @@
 <body>
     <pre>
 
-/* Temporary Fixes
-Der grüne Sprech-Ring wurde wiederhergestellt und Profile sind transparent.
+/* 
+Temporary Fixes
+Der grüne Sprech-Ring wurde wiederhergestellt.
 */
 
 .visual-refresh .theme-dark, .visual-refresh.theme-dark {
@@ -36,6 +37,7 @@ Der grüne Sprech-Ring wurde wiederhergestellt und Profile sind transparent.
   --border-faint: none;
   --border-strong: none;
   --border-subtle: none;
+  /* --border-normal: none;  <-- GELÖSCHT, damit Rahmen wieder funktionieren */
   --button-danger-background: none;
   --button-danger-background-active: none;
   --button-danger-background-disabled: none;
@@ -178,19 +180,9 @@ Der grüne Sprech-Ring wurde wiederhergestellt und Profile sind transparent.
   --text-tertiary: rgba(0, 0, 0, .3);
 }
 
-/* Sprech-Ring erzwingen */
+/* Erzwingt das grüne Leuchten beim Sprechen */
 .avatar-speaking, .speaking-32W9G5, .avatarSpeaking-3MqzwV {
   box-shadow: inset 0 0 0 2px var(--green-new-24) !important;
-}
-
-/* Transparenz für Profile und Panels */
-.userProfileModalInner_c69a7b,
-.overlayBackground_c69a7b,
-.profileEffects_f35544,
-.userProfileOuterUnthemed_c69a7b,
-.root_b9fccc,
-.panels_c48ade {
-    background: transparent !important;
 }
     </pre>
 </body>
