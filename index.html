@@ -184,9 +184,11 @@ Add your fixes below.
 
 /* --- FINALE TRANSPARENZ FÜR USER-POPOUT --- */
 
-/* Wir entfernen alle Hintergründe der Popout-Ebenen */
+/* Alle Popout-Ebenen transparent machen */
 [class*="userPopoutOuter"], 
 [class*="userPopoutInner"], 
+[class*="userProfileOuter"],
+[class*="userProfileInner"],
 [class*="overlayBackground"],
 .root_bfe55a {
     background: transparent !important;
@@ -195,14 +197,17 @@ Add your fixes below.
     box-shadow: none !important;
 }
 
-/* Falls das Anime-Theme hier einen dunklen Schleier legt */
-[class*="userPopout"]::before {
+/* Entfernt den dunklen Schleier, falls das Theme einen erzwingt */
+[class*="userPopout"]::before,
+[class*="userProfile"]::before {
     display: none !important;
 }
 
-/* Sicherstellen, dass der Inhalt (Text/Avatar) sichtbar bleibt */
+/* Sicherstellen, dass die Inhalte (Avatar, Text) sichtbar bleiben */
 [class*="userPopout"] [class*="body"],
-[class*="userPopout"] [class*="header"] {
+[class*="userPopout"] [class*="header"],
+[class*="userProfile"] [class*="body"],
+[class*="userProfile"] [class*="header"] {
     background: transparent !important;
 }
     </pre>
