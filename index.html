@@ -182,33 +182,30 @@ Add your fixes below.
   --text-tertiary: rgba(0,0,0,.3)
 }
 
-/* --- FIX: Sprecher-Rahmen reparieren trotz Theme-Transparenz --- */
+/* --- FIX: User-Panel Transparenz für Freunde & Profile --- */
 
-/* 1. Priorität erzwingen: Rahmen darf niemals durchsichtig oder weggemacht werden */
-[class*="speaking-"] {
-    box-shadow: inset 0 0 0 2px #3ba55d !important;
-    position: relative !important;
-    z-index: 1000 !important;
+/* Wir adressieren alle möglichen Container-Typen für User-Panels */
+[class*="userProfileOuter"],
+[class*="userProfileInner"],
+[class*="userPopoutOuter"],
+[class*="userPopoutInner"],
+div[class*="popout-"] {
+    background: transparent !important;
+    background-color: transparent !important;
 }
 
-/* 2. Avatar-Container im User-Popout/Profil spezifisch reparieren */
-/* Wir stellen sicher, dass das Avatar-Element nicht vom Blur-Filter des Themes beeinträchtigt wird */
-[class*="userProfile"] [class*="avatar-"] {
-    border: none !important;
-    box-shadow: none !important;
+/* Erzwinge die Sichtbarkeit für die Inhalte (damit Text nicht verschwindet) */
+[class*="userProfile"], 
+[class*="userPopout"] {
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
-/* 3. Falls das Theme den Rahmen um das Avatar-Bild im Profil selbst zeichnet: */
-[class*="userProfile"] [class*="speaking-"] {
-    box-shadow: inset 0 0 0 2px #3ba55d !important;
-    outline: 2px solid #3ba55d !important;
-}
-
-/* 4. Transparenz der Profile korrigieren, damit Text lesbar bleibt */
-[class*="userProfileOuter"] {
-    background: rgba(0, 0, 0, 0.8) !important; /* Leichtes Grau statt komplett 'none' */
-    backdrop-filter: blur(10px) !important;
-    border: 1px solid rgba(0, 217, 255, 0.2) !important;
+/* Falls dein Theme die Profile mit einem Bild überschreibt, 
+   zwingen wir den Hintergrund hier auf transparent */
+.userProfileInner_c69a7b,
+.userPopoutInner_c69a7b {
+    background: transparent !important;
 }
     </pre>
 </body>
