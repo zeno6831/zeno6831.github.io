@@ -181,26 +181,26 @@ Add your fixes below.
 
 /* --- HIER BEGINNEN DIE FIXES --- */
 
-/* Grünen Rahmen beim Sprechen reparieren */
-.visual-refresh .theme-dark, .visual-refresh.theme-dark {
-    --voice-speaking-border: #3ba55d !important;
-    --status-positive-border: #3ba55d !important;
+/* --- HIER DIE FIXES --- */
+
+/* 1. Transparenz für alle User-Profile erzwingen */
+.userProfileOuter_c69a7b,
+.userProfileInner_c69a7b {
+    background: transparent !important;
 }
 
-/* Avatar-Umrandung erzwingen: Wir nutzen hier eine allgemeinere 
-   Klasse, damit es auch dann greift, wenn Discord die Namen ändert */
+/* 2. Den "Sprech-Rahmen" (Speaking Border) erzwingen */
+/* Wir nutzen hier einen 'z-index', damit der Rahmen immer ÜBER dem Profil liegt */
+.wrapper_c51b4e.speaking_c51b4e,
 [class*="avatar_"][class*="speaking_"] {
     box-shadow: inset 0 0 0 2px #3ba55d !important;
+    position: relative;
+    z-index: 1;
 }
 
-/* Falls der Rahmen um den ganzen User-Wrapper sein soll: */
-[class*="wrapper_"][class*="speaking_"] {
-    box-shadow: inset 0 0 0 2px #3ba55d !important;
-}
-
-/* User-Profile transparent lassen, OHNE den Rest zu stören */
-.userProfileOuter_c69a7b {
-    background: transparent !important;
+/* 3. Globaler Variablen-Fix für die VC-Panels */
+.visual-refresh .theme-dark, .visual-refresh.theme-dark {
+    --voice-speaking-border: #3ba55d !important;
 }
     </pre>
 </body>
