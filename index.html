@@ -182,29 +182,27 @@ Add your fixes below.
   --text-tertiary: rgba(0,0,0,.3)
 }
 
-/* --- FIX: User-Panel Transparenz für Freunde & Profile --- */
+/* --- FINALE TRANSPARENZ FÜR USER-POPOUT --- */
 
-/* Wir adressieren alle möglichen Container-Typen für User-Panels */
-[class*="userProfileOuter"],
-[class*="userProfileInner"],
-[class*="userPopoutOuter"],
-[class*="userPopoutInner"],
-div[class*="popout-"] {
+/* Wir entfernen alle Hintergründe der Popout-Ebenen */
+[class*="userPopoutOuter"], 
+[class*="userPopoutInner"], 
+[class*="overlayBackground"],
+.root_bfe55a {
     background: transparent !important;
     background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
-/* Erzwinge die Sichtbarkeit für die Inhalte (damit Text nicht verschwindet) */
-[class*="userProfile"], 
-[class*="userPopout"] {
-    opacity: 1 !important;
-    visibility: visible !important;
+/* Falls das Anime-Theme hier einen dunklen Schleier legt */
+[class*="userPopout"]::before {
+    display: none !important;
 }
 
-/* Falls dein Theme die Profile mit einem Bild überschreibt, 
-   zwingen wir den Hintergrund hier auf transparent */
-.userProfileInner_c69a7b,
-.userPopoutInner_c69a7b {
+/* Sicherstellen, dass der Inhalt (Text/Avatar) sichtbar bleibt */
+[class*="userPopout"] [class*="body"],
+[class*="userPopout"] [class*="header"] {
     background: transparent !important;
 }
     </pre>
